@@ -6,22 +6,19 @@ import {
 import Navbar from "./Navbar";
 import RegisterForm from "./RegisterForm";
 import UserProfile from "./UserProfile";
+import Friends from "./Friends/app";
 import Event from './Event.jsx';
 import EventList from './EventList.jsx';
 import EventInsert from './EventInsert.jsx';
 import EventUpdate from './EventUpdate.jsx';
 
-const FriendsPage = () => {
-    return <div > FriendsPage < /div>;
-};
-
 const PostsPage = () => {
-    return <div > PostsPage < /div>;
+    return <div > PostsPage </div>;
 };
 
 
 const PhotosPage = () => {
-    return <div > PhotosPage < /div>;
+    return <div > PhotosPage </div>;
 };
 
 const App = () => {
@@ -51,7 +48,7 @@ const App = () => {
         /> <
         Route path = "/friends"
         component = {
-            FriendsPage
+            () => <Friends/>
         }
         /> <
         Route path = "/posts"
@@ -94,3 +91,7 @@ const App = () => {
 };
 
 export default App;
+
+
+ 
+        
