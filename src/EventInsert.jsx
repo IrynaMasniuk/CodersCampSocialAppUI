@@ -1,9 +1,8 @@
 
 import React, { Component } from 'react';
-import axios from 'axios';
 import api from './api'
 import Button from 'react-bootstrap/Button';
-
+import axios from 'axios'
 export default class CreateEvent extends Component {
     constructor(props) {
         super(props);
@@ -12,7 +11,8 @@ export default class CreateEvent extends Component {
             name: '',
             place: '',
             date: '',
-            description: ''
+            description: '',
+            userId: '',
         }
     }
 
@@ -32,24 +32,27 @@ export default class CreateEvent extends Component {
         const description = event.target.value
         this.setState({ description })
     }
+    handleChangeInputUserId = async event => {
+        const userId = event.target.value
+        this.setState({ userId })
+    }
 
     handleIncludeEvent = async (e) => {
         e.preventDefault();
-        const { name, place, date, description } = this.state
-        const payload = { name, place, date, description }
-
-        await api.insertEvent(payload).then(res => {
-            window.alert(`Event inserted successfully`)
-            this.setState({
-                name: '',
-                place: '',
-                date: '',
-                description: ''
-            })
+        await axios.post('http://localhost:5000/api/events', {
+            name: this.state.name,
+            place: this.state.place,
+            date: this.state.date,
+            description: this.state.description
         })
+            .then(response => {
+                console.log(response)
+            })
+            .catch(error => {
+                console.log(error.response)
+            });
+
     }
-
-
     render() {
         return (
             <div>
@@ -82,6 +85,13 @@ export default class CreateEvent extends Component {
                             className="form-control"
                             value={this.state.description}
                             onChange={this.handleChangeInputDescription}
+                        />
+
+                        <label>User Id </label>
+                        <input type="text"
+                            className="form-control"
+                            value={this.state.userId}
+                            onChange={this.handleChangeInputUserId}
                         />
                     </div>
                     <div className="form-group">

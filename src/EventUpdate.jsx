@@ -54,10 +54,10 @@ export default class EventUpdate extends Component {
         const event = await api.getEventById(id)
 
         this.setState({
-            name: event.data.data.name,
-            place: event.data.data.place,
-            date: event.data.data.date,
-            description: event.data.data.description
+            name: event.data.name,
+            place: event.data.place,
+            date: event.data.date,
+            description: event.data.description
         })
     }
 

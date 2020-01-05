@@ -40,7 +40,7 @@ class UpdateEvent extends Component {
     updateEvent = e => {
         e.preventDefault()
 
-        window.location.href = `/events/update/:${this.props.id}`
+        window.location.href = `/events/update/${this.props.id}`
     }
 
     render() {
