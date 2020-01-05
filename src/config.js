@@ -3,7 +3,7 @@ const config = {
     backend: backend,
     userApi: {
         find: (email) => `${backend}users/${email}`,
-        update: (id) => `${backend}users/${id}`
+        particularUser: (id) => `${backend}users/${id}`
     }
 };
 
