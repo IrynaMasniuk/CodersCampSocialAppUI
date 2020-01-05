@@ -22,14 +22,6 @@ import CommentsUpdate from './pages/CommentsUpdate';
 
 import Posts from "./Posts/app";
 
-const PostsPage = () => {
-    return <div > PostsPage </div>;
-};
-
-const PhotosPage = () => {
-    return <div > PhotosPage </div>;
-};
-
 const App = () => {
     return ( 
         <div style = {{

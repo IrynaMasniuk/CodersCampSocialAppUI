@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import api from '../api';
+import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 
 class CommentsInsert extends Component {
@@ -13,33 +13,33 @@ class CommentsInsert extends Component {
         };
     };
 
-    handleChangeInputAuthor = async event => {
-        const author = event.target.value
+    handleChangeInputAuthor = async e => {
+        const author = e.target.value
         this.setState({ author })
     };
 
-    handleChangeInputDate = async event => {
-        const date = event.target.value
+    handleChangeInputDate = async e => {
+        const date = e.target.value
         this.setState({ date })
     };
 
-    handleChangeInputContent = async event => {
-        const content = event.target.value
+    handleChangeInputContent = async e => {
+        const content = e.target.value
         this.setState({ content })
     };
 
     handleIncludeComment = async (e) => {
         e.preventDefault();
-        const { author, date, content} = this.state
-        const payload = {author, date, content}
-
-        await api.insertComment(payload).then(res => {
-            window.alert(`Comment inserted successfully`)
-            this.setState({
-                author: '',
-                date: '',
-                content: '',
-            })
+        await axios.post('http://localhost:5000/api/comments', {
+            author: this.state.author,
+            date: this.state.date,
+            content: this.state.content
+        })
+        .then(response => {
+            console.log(response)
+        })
+        .catch(error => {
+            console.log(error.response)
         });
     };
 
@@ -65,6 +65,7 @@ class CommentsInsert extends Component {
                         />
                         <label>Comment content: </label>
                         <textarea
+                            required
                             className="form-control"
                             value={this.state.content}
                             onChange={this.handleChangeInputContent}
