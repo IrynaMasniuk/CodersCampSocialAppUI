@@ -146,9 +146,9 @@ class PostsList extends Component {
         ]
 
         let showTable = true
-        if (!posts.length) {
-            showTable = false
-        }
+//        if (!posts.length) {
+//            showTable = false
+//        }
 
         return (
             <Wrapper>
