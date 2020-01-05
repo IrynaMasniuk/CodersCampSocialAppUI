@@ -40,7 +40,7 @@ const App = () => {
             <BrowserRouter >
                 <div>
                     <Route path="/" exact component ={RegisterForm} />
-                    <Route path="/profile" render = { () => < UserProfile email='deniro@gmail.com' /> }/>
+                    <Route path="/profile" render = { () => < UserProfile /> }/>
                     <Route path="/friends" component={ () => <Friends/> } />
                     <Route path="/posts" component={ () => <Posts/> }/>
 

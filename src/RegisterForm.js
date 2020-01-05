@@ -135,11 +135,11 @@ class RegisterForm extends React.Component {
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom04">Relationship</label>
                             <select className="custom-select" id="validationCustom04" required value={this.state.relationStatus} onChange={this.handleRelation}>
-                                <option value="Single">Single</option>
-                                <option value='Dating'>Dating</option>
-                                <option value='Married'>Married</option>
-                                <option value='Divorced'>Divorced</option>
-                                <option value='Complicated'>Complicated</option>
+                                <option value="single">single</option>
+                                <option value='dating'>dating</option>
+                                <option value='married'>married</option>
+                                <option value='divorced'>divorced</option>
+                                <option value='complicated'>complicated</option>
                             </select>
                             <div className="invalid-feedback">
                                 Please select a valid state.
@@ -221,7 +221,7 @@ class RegisterForm extends React.Component {
         )}
 
     tryRegister = async  (e) => {
-        e.preventDefault();
+
         await axios.post('http://localhost:5000/api/users/', {
             username : this.state.username,
             password:this.state.password,
@@ -237,6 +237,7 @@ class RegisterForm extends React.Component {
         })
             .then(response => {
                 console.log(response)
+                window.location.href = "localhost:3000/Profile/"+ this.state.email;
             })
             .catch(error => {
                 console.log(error.response)
