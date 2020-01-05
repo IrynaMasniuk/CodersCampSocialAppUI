@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 
 
+
 class Navbar extends React.Component{
 
     constructor(props){
@@ -36,7 +37,7 @@ class Navbar extends React.Component{
                 <ul className="navbar-nav mr-auto">
 
                 </ul>
-                <form className="form-inline my-2 my-lg-0">
+                <form className="form-inline my-2 my-lg-0" target="_blank" action="localhost:3000/Profile/">
                     <input className="form-control mr-sm-2" type="text" placeholder="Email" aria-label="Email" value={this.state.email} onChange={this.handleMail}/>
                     <input className="form-control mr-sm-2" type="text" placeholder="Password" aria-label="Password" value={this.state.password} onChange={this.handlePass}/>
                         <button className="btn btn-dark my-2 my-sm-0" type="submit" onClick={this.tryLogin}>Login</button>
@@ -52,6 +53,9 @@ class Navbar extends React.Component{
         })
             .then(response => {
                 console.log(response)
+                localStorage.setItem('email',this.state.email);
+                let tempUrl = 'http://localhost:3000/Profile/';
+                e.openWindow(tempUrl);
             })
             .catch(error => {
                 console.log(error.response)
