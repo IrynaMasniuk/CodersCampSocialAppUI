@@ -26,23 +26,23 @@ class RegisterForm extends React.Component {
         const username = event.target.value
         this.setState({ username })
     }
-    handleBirth = async event => {
+    handlePass = async event => {
         const password = event.target.value
         this.setState({ password })
     }
-    handleMail = async event => {
+    handleBirth = async event => {
         const dateOfBirth = event.target.value
         this.setState({ dateOfBirth })
     }
-    handlePhone = async event => {
+    handleMail = async event => {
         const email = event.target.value
         this.setState({ email })
     }
-    handleRelation = async event => {
+    handlePhone = async event => {
         const phoneNumber = event.target.value
         this.setState({ phoneNumber })
     }
-    handleHobbies = async event => {
+    handleRelation = async event => {
         const relationStatus = event.target.value
         this.setState({ relationStatus })
     }
@@ -54,7 +54,7 @@ class RegisterForm extends React.Component {
         const cityOfLiving = event.target.value
         this.setState({ cityOfLiving })
     }
-    handleWork = async event => {
+    handleHobbies = async event => {
         const hobbies = event.target.value
         this.setState({ hobbies })
     }
@@ -62,7 +62,7 @@ class RegisterForm extends React.Component {
         const education = event.target.value
         this.setState({ education })
     }
-    handlePass = async event => {
+    handleWork = async event => {
         const work = event.target.value
         this.setState({ work })
     }
