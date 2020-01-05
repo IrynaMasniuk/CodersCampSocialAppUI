@@ -76,6 +76,7 @@ class Profile extends React.Component {
                     <div className="button-area">
                         <div><Link to="/friends">Friends</Link></div>
                         <div><Link to="/posts">Posts</Link></div>
+                        <div><Link to="/comments">Comments</Link></div>
                         <div><Link to="/events">Events</Link></div>
                         <div><Link to="/photos">Photos</Link></div>
 
