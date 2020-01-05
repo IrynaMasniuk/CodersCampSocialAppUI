@@ -7,24 +7,12 @@ class CommentsInsert extends Component {
         super(props)
 
         this.state = {
-            author: '',
-            date: '',
             content: ''
         };
     };
 
-    handleChangeInputAuthor = async e => {
-        const author = e.target.value
-        this.setState({ author })
-    };
-
-    handleChangeInputDate = async e => {
-        const date = e.target.value
-        this.setState({ date })
-    };
-
-    handleChangeInputContent = async e => {
-        const content = e.target.value
+    handleChangeInputContent = async event => {
+        const content = event.target.value
         this.setState({ content })
     };
 
@@ -49,20 +37,6 @@ class CommentsInsert extends Component {
                 <h3>Create New Comment</h3>
                 <form >
                     <div className="form-group">
-                        <label>Comment author: </label>
-                        <input type="text"
-                            required
-                            className="form-control"
-                            value={this.state.author}
-                            onChange={this.handleChangeInputAuthor}
-                        />
-                        <label>Comment date: </label>
-                        <input type="date"
-                            required
-                            className="form-control"
-                            value={this.state.date}
-                            onChange={this.handleChangeInputDate}
-                        />
                         <label>Comment content: </label>
                         <textarea
                             required
@@ -73,7 +47,7 @@ class CommentsInsert extends Component {
                     </div>
 
                     <div className="form-group">
-                        <Button variant="primary" size="sm" onClick={this.onSubmit} block="block" type="submit">
+                        <Button variant="primary" size="sm" onClick={this.handleIncludeComment} block="block" type="submit">
                             Create Comment
                         </Button>
 
