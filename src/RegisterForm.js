@@ -221,7 +221,7 @@ class RegisterForm extends React.Component {
         )}
 
     tryRegister = async  (e) => {
-
+    e.preventDefault();
         await axios.post('http://localhost:5000/api/users/', {
             username : this.state.username,
             password:this.state.password,
@@ -237,7 +237,8 @@ class RegisterForm extends React.Component {
         })
             .then(response => {
                 console.log(response)
-                window.location.href = "localhost:3000/Profile/"+ this.state.email;
+                let url1 = "localhost:3000/Profile/"+ this.state.email;
+                window.open(url1);
             })
             .catch(error => {
                 console.log(error.response)
