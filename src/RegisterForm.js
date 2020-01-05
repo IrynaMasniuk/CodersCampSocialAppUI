@@ -5,18 +5,69 @@ import axios from 'axios';
 import config from './config';
 
 class RegisterForm extends React.Component {
-//     state = {
-//         username: '',
-//         dateOfBirth: '',
-//         email: '',
-//         phoneNumber: '',
-//         relationship: '',
-//         cityOfOrigin: '',
-//         cityOfLiving: '',
-//         hobbies: '',
-//         work: '',
-//         education: ''
-//        };
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: '',
+            password:'',
+            dateOfBirth: '',
+            email: '',
+            phoneNumber: '',
+            relationStatus: '',
+            cityOfOrigin: '',
+            cityOfLiving: '',
+            hobbies: '',
+            work: '',
+            education: ''
+        }
+    }
+
+    handleUsername = async event => {
+        const username = event.target.value
+        this.setState({ username })
+    }
+    handleBirth = async event => {
+        const password = event.target.value
+        this.setState({ password })
+    }
+    handleMail = async event => {
+        const dateOfBirth = event.target.value
+        this.setState({ dateOfBirth })
+    }
+    handlePhone = async event => {
+        const email = event.target.value
+        this.setState({ email })
+    }
+    handleRelation = async event => {
+        const phoneNumber = event.target.value
+        this.setState({ phoneNumber })
+    }
+    handleHobbies = async event => {
+        const relationStatus = event.target.value
+        this.setState({ relationStatus })
+    }
+    handleCityO = async event => {
+        const cityOfOrigin = event.target.value
+        this.setState({ cityOfOrigin })
+    }
+    handleCityL = async event => {
+        const cityOfLiving = event.target.value
+        this.setState({ cityOfLiving })
+    }
+    handleWork = async event => {
+        const hobbies = event.target.value
+        this.setState({ hobbies })
+    }
+    handleEducation = async event => {
+        const education = event.target.value
+        this.setState({ education })
+    }
+    handlePass = async event => {
+        const work = event.target.value
+        this.setState({ work })
+    }
+
+
 
 // onFormSubmit(event) {
 //     event.preventDefault();
@@ -40,18 +91,18 @@ class RegisterForm extends React.Component {
         return(
             <div className="container register">
                 <h1 className="toast-header">Sign Up right now</h1>
-                <form onSubmit={this.onFormSubmit} className="needs-validation" noValidate>
+                <form  className="needs-validation" noValidate>
                     <div className="form-row">
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom01">Username</label>
-                            <input type="text" className="form-control" id="validationCustom01" required value={this.state.username}/>
+                            <input type="text" className="form-control" id="validationCustom01" required value={this.state.username} onChange={this.handleUsername}/>
                             <div className="valid-feedback">
                                 Looks good!
                             </div>
                         </div>
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom02">Date of Birth</label>
-                            <input type="text" className="form-control" id="validationCustom02" required value={this.state.dateOfBirth}/>
+                            <input type="text" className="form-control" id="validationCustom02" required value={this.state.dateOfBirth} onChange={this.handleBirth}/>
                             <div className="valid-feedback">
                                 Looks good!
                             </div>
@@ -65,7 +116,7 @@ class RegisterForm extends React.Component {
                                     <span className="input-group-text" id="inputGroupPrepend">@</span>
                                 </div>
                                 <input type="text" className="form-control" id="validationCustomUsername"
-                                       aria-describedby="inputGroupPrepend"  required value={this.state.email}/>
+                                       aria-describedby="inputGroupPrepend"  required value={this.state.email} onChange={this.handleMail}/>
                                 <div className="invalid-feedback">
                                     Please choose a email.
                                 </div>
@@ -73,7 +124,7 @@ class RegisterForm extends React.Component {
                         </div>
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom03">Phone number</label>
-                            <input type="text" className="form-control" id="validationCustom03"  required value={this.state.phoneNumber}/>
+                            <input type="text" className="form-control" id="validationCustom03"  required value={this.state.phoneNumber} onChange={this.handlePhone}/>
                             <div className="invalid-feedback">
                                 Please provide a valid phone number.
                             </div>
@@ -83,7 +134,7 @@ class RegisterForm extends React.Component {
 
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom04">Relationship</label>
-                            <select className="custom-select" id="validationCustom04" required value={this.state.relationStatus}>
+                            <select className="custom-select" id="validationCustom04" required value={this.state.relationStatus} onChange={this.handleRelation}>
                                 <option value="Single">Single</option>
                                 <option value='Dating'>Dating</option>
                                 <option value='Married'>Married</option>
@@ -96,7 +147,7 @@ class RegisterForm extends React.Component {
                         </div>
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom05">Hobbies</label>
-                            <input type="text" className="form-control" id="validationCustom05" required value={this.state.hobbies}/>
+                            <input type="text" className="form-control" id="validationCustom05" required value={this.state.hobbies} onChange={this.handleHobbies}/>
                             <div className="invalid-feedback">
                                 Please provide a valid hobbies.
                             </div>
@@ -106,14 +157,14 @@ class RegisterForm extends React.Component {
                     <div className="form-row">
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom05">CityOfOrigin</label>
-                            <input type="text" className="form-control" id="validationCustom05"value={this.state.cityOfOrigin} />
+                            <input type="text" className="form-control" id="validationCustom05"value={this.state.cityOfOrigin} onChange={this.handleCityO} />
                             <div className="invalid-feedback">
                                 Please provide a valid city of origin.
                             </div>
                         </div>
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom05">CityOfLiving</label>
-                            <input type="text" className="form-control" id="validationCustom05"value={this.state.cityOfLiving} />
+                            <input type="text" className="form-control" id="validationCustom05"value={this.state.cityOfLiving} onChange={this.handleCityL}/>
                             <div className="invalid-feedback">
                                 Please provide a valid city of living.
                             </div>
@@ -123,19 +174,30 @@ class RegisterForm extends React.Component {
                     <div className="form-row">
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom05">Work</label>
-                            <input type="text" className="form-control" id="validationCustom05" value={this.state.work} />
+                            <input type="text" className="form-control" id="validationCustom05" value={this.state.work} onChange={this.handleWork} />
                             <div className="invalid-feedback">
                                 Please provide a valid work status.
                             </div>
                         </div>
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom05">Education</label>
-                            <input type="text" className="form-control" id="validationCustom05" value={this.state.education}/>
+                            <input type="text" className="form-control" id="validationCustom05" value={this.state.education} onChange={this.handleEducation}/>
                             <div className="invalid-feedback">
                                 Please provide a valid education status.
                             </div>
                         </div>
                     </div>
+
+                    <div className="form-row">
+                        <div className="col-md-3 mb-1">
+                            <label htmlFor="validationCustom05">Password</label>
+                            <input type="text" className="form-control" id="validationCustom05" value={this.state.password} onChange={this.handlePass}/>
+                            <div className="invalid-feedback">
+                                Please provide a valid password.
+                            </div>
+                        </div>
+                    </div>
+
                     <div className="form-group">
                         <div className="form-check">
                             <input className="form-check-input" type="checkbox" value="" id="invalidCheck" required />
@@ -158,9 +220,27 @@ class RegisterForm extends React.Component {
 
         )}
 
-    tryRegister(){
-        axios.post('http://localhost:5000/api/');
-        console.log("cos pyklo");
+    tryRegister = async  (e) => {
+        e.preventDefault();
+        await axios.post('http://localhost:5000/api/users/', {
+            username : this.state.username,
+            password:this.state.password,
+            dateOfBirth: this.state.dateOfBirth,
+            phoneNumber: this.state.phoneNumber,
+            work:this.state.work,
+            education:this.state.education,
+            cityOfLiving:this.state.cityOfLiving,
+            cityOfOrigin:this.state.cityOfOrigin,
+            relationStatus:this.state.relationStatus,
+            email:this.state.email,
+            hobbies:this.state.hobbies
+        })
+            .then(response => {
+                console.log(response)
+            })
+            .catch(error => {
+                console.log(error.response)
+            });
     }
 
 }
