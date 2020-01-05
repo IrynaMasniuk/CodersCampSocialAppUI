@@ -44,14 +44,14 @@ class RegisterForm extends React.Component {
                     <div className="form-row">
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom01">Username</label>
-                            <input type="text" className="form-control" id="validationCustom01" required/>
+                            <input type="text" className="form-control" id="validationCustom01" required value={this.state.username}/>
                             <div className="valid-feedback">
                                 Looks good!
                             </div>
                         </div>
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom02">Date of Birth</label>
-                            <input type="text" className="form-control" id="validationCustom02" required/>
+                            <input type="text" className="form-control" id="validationCustom02" required value={this.state.dateOfBirth}/>
                             <div className="valid-feedback">
                                 Looks good!
                             </div>
@@ -65,17 +65,17 @@ class RegisterForm extends React.Component {
                                     <span className="input-group-text" id="inputGroupPrepend">@</span>
                                 </div>
                                 <input type="text" className="form-control" id="validationCustomUsername"
-                                       aria-describedby="inputGroupPrepend"  required/>
+                                       aria-describedby="inputGroupPrepend"  required value={this.state.email}/>
                                 <div className="invalid-feedback">
-                                    Please choose a username.
+                                    Please choose a email.
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom03">Phone number</label>
-                            <input type="text" className="form-control" id="validationCustom03"  required/>
+                            <input type="text" className="form-control" id="validationCustom03"  required value={this.state.phoneNumber}/>
                             <div className="invalid-feedback">
-                                Please provide a valid city.
+                                Please provide a valid phone number.
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@ class RegisterForm extends React.Component {
 
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom04">Relationship</label>
-                            <select className="custom-select" id="validationCustom04" required>
+                            <select className="custom-select" id="validationCustom04" required value={this.state.relationStatus}>
                                 <option value="Single">Single</option>
                                 <option value='Dating'>Dating</option>
                                 <option value='Married'>Married</option>
@@ -96,9 +96,9 @@ class RegisterForm extends React.Component {
                         </div>
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom05">Hobbies</label>
-                            <input type="text" className="form-control" id="validationCustom05" required/>
+                            <input type="text" className="form-control" id="validationCustom05" required value={this.state.hobbies}/>
                             <div className="invalid-feedback">
-                                Please provide a valid zip.
+                                Please provide a valid hobbies.
                             </div>
                         </div>
 
@@ -106,16 +106,16 @@ class RegisterForm extends React.Component {
                     <div className="form-row">
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom05">CityOfOrigin</label>
-                            <input type="text" className="form-control" id="validationCustom05" />
+                            <input type="text" className="form-control" id="validationCustom05"value={this.state.cityOfOrigin} />
                             <div className="invalid-feedback">
-                                Please provide a valid zip.
+                                Please provide a valid city of origin.
                             </div>
                         </div>
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom05">CityOfLiving</label>
-                            <input type="text" className="form-control" id="validationCustom05" />
+                            <input type="text" className="form-control" id="validationCustom05"value={this.state.cityOfLiving} />
                             <div className="invalid-feedback">
-                                Please provide a valid zip.
+                                Please provide a valid city of living.
                             </div>
                         </div>
 
@@ -123,22 +123,22 @@ class RegisterForm extends React.Component {
                     <div className="form-row">
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom05">Work</label>
-                            <input type="text" className="form-control" id="validationCustom05"  />
+                            <input type="text" className="form-control" id="validationCustom05" value={this.state.work} />
                             <div className="invalid-feedback">
-                                Please provide a valid zip.
+                                Please provide a valid work status.
                             </div>
                         </div>
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom05">Education</label>
-                            <input type="text" className="form-control" id="validationCustom05" />
+                            <input type="text" className="form-control" id="validationCustom05" value={this.state.education}/>
                             <div className="invalid-feedback">
-                                Please provide a valid zip.
+                                Please provide a valid education status.
                             </div>
                         </div>
                     </div>
                     <div className="form-group">
                         <div className="form-check">
-                            <input className="form-check-input" type="checkbox" value="" id="invalidCheck" required/>
+                            <input className="form-check-input" type="checkbox" value="" id="invalidCheck" required />
                             <label className="form-check-label" htmlFor="invalidCheck">
                                 Agree to <a href="#" >terms and condition</a>
                             </label>
