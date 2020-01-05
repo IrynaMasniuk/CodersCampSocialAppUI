@@ -20,6 +20,8 @@ import CommentsInsert from './pages/CommentsInsert';
 import CommentsList from './pages/CommentsList';
 import CommentsUpdate from './pages/CommentsUpdate';
 
+import Posts from "./Posts/app";
+
 const PostsPage = () => {
     return <div > PostsPage </div>;
 };
@@ -43,7 +45,7 @@ const App = () => {
                     render={ () => < UserProfile email='au8ujhikect@gmail' />}
                     />
                     <Route path="/friends" component={ () => <Friends/> } />
-                    <Route path="/posts" component={PostsPage}/>
+                    <Route path="/posts" component={ () => <Posts/> }/>
 
                     <Route path="/events" exact component={Event} />
                     <Route path="/events/list" exact component={EventList} />
