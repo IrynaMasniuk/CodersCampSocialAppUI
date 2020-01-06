@@ -1,8 +1,12 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import config from './config';
+import UserProfile from "./UserProfile";
 
 class RegisterForm extends React.Component {
+
+
     constructor(props) {
         super(props);
         this.state = {
@@ -89,7 +93,7 @@ class RegisterForm extends React.Component {
         return(
             <div className="container register">
                 <h1 className="toast-header">Sign Up right now</h1>
-                <form  className="needs-validation" noValidate>
+                <form  className="needs-validation" noValidate target="_blank" action='localhost:3000/Profile/'>
                     <div className="form-row">
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom01">Username</label>
@@ -219,7 +223,7 @@ class RegisterForm extends React.Component {
         )}
 
     tryRegister = async  (e) => {
-    e.preventDefault();
+
         await axios.post('http://localhost:5000/api/users/', {
             username : this.state.username,
             password:this.state.password,
@@ -235,13 +239,16 @@ class RegisterForm extends React.Component {
         })
             .then(response => {
                 console.log(response)
-                let url1 = "localhost:3000/Profile/"+ this.state.email;
-                window.open(url1);
+                localStorage.setItem('email',this.state.email);
+                let tempUrl = 'http://localhost:3000/Profile/';
+                e.openWindow(tempUrl);
+
             })
             .catch(error => {
                 console.log(error.response)
             });
     }
+
 
 }
 

@@ -22,33 +22,45 @@ import CommentsUpdate from './pages/CommentsUpdate';
 
 import Posts from "./Posts/app";
 
-const App = () => {
-    return ( 
-        <div style = {{
-            backgroundColor: "#d0ecf0",
-            minHeight: "100vh"
-        }}>
-        <Navbar />
-            <BrowserRouter >
-                <div>
-                    <Route path="/" exact component ={RegisterForm} />
-                    <Route path="/profile" render = { () => < UserProfile email='deniro@gmail.com' /> }/>
-                    <Route path="/friends" component={ () => <Friends/> } />
-                    <Route path="/posts" component={ () => <Posts/> }/>
+class App extends React.Component{
 
-                    <Route path="/events" exact component={Event} />
-                    <Route path="/events/list" exact component={EventList} />
-                    <Route path="/events/create" exact component={EventInsert}/>
-                    <Route path="/events/update/:id" exact component={EventUpdate}/>
+        render() {
+        var x ='';
+        if(localStorage.getItem('email') !== null){
+            x=localStorage.getItem('email');
+        }else{
+            x='deniro@gmail.com';
+        }
 
-                    <Route path="/comments" exact component={Comments}/>
-                    <Route path="/comments/list" exact component={CommentsList}/>
-                    <Route path="/comments/create" exact component={CommentsInsert}/>
-                    <Route path="/comments/update/:id" exact component={CommentsUpdate}/>
+
+            return (
+
+                <div style={{
+                    backgroundColor: "#d0ecf0",
+                    minHeight: "100vh"
+                }}>
+                    <Navbar/>
+                    <BrowserRouter>
+                        <div>
+                            <Route path="/" exact component={RegisterForm}/>
+                            <Route path='/Profile' render={() => < UserProfile email={x}/>}/>
+                            <Route path="/friends" component={() => <Friends/>}/>
+                            <Route path="/posts" component={() => <Posts/>}/>
+
+                            <Route path="/events" exact component={Event}/>
+                            <Route path="/events/list" exact component={EventList}/>
+                            <Route path="/events/create" exact component={EventInsert}/>
+                            <Route path="/events/update/:id" exact component={EventUpdate}/>
+
+                            <Route path="/comments" exact component={Comments}/>
+                            <Route path="/comments/list" exact component={CommentsList}/>
+                            <Route path="/comments/create" exact component={CommentsInsert}/>
+                            <Route path="/comments/update/:id" exact component={CommentsUpdate}/>
+                        </div>
+                    </BrowserRouter>
                 </div>
-            </BrowserRouter>
-        </div>
-    );
-};
+            )}
+
+}
 
 export default App;
