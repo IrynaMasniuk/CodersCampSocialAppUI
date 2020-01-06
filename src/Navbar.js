@@ -23,7 +23,17 @@ class Navbar extends React.Component{
     }
 
     render(){
+        var logoutdisp = '';
+        var maile = '';
+        var passy = '';
+        if(localStorage.getItem('email')!=null){
+            logoutdisp = 'inline-block';
+            maile = 'none';
+            passy='none'
+        }
+
         return(
+
 
         <nav className="navbar navbar-expand-lg navbar-light bg-info">
             <a className="navbar-brand errorr" href="http://localhost:3000/"><img src="https://img.pngio.com/free-media-network-social-tango-icon-tango-png-free-512_512.png" width="10%" height="10%"/>   SocialApp</a>
@@ -38,13 +48,19 @@ class Navbar extends React.Component{
 
                 </ul>
                 <form className="form-inline my-2 my-lg-0" target="_blank" action="localhost:3000/Profile/">
-                    <input className="form-control mr-sm-2" type="text" placeholder="Email" aria-label="Email" value={this.state.email} onChange={this.handleMail}/>
-                    <input className="form-control mr-sm-2" type="text" placeholder="Password" aria-label="Password" value={this.state.password} onChange={this.handlePass}/>
-                        <button className="btn btn-dark my-2 my-sm-0" type="submit" onClick={this.tryLogin}>Login</button>
+                    <input className="form-control mr-sm-2" id="logon" type="text" placeholder="Email" aria-label="Email" value={this.state.email} onChange={this.handleMail} style={{display:maile}}/>
+                    <input className="form-control mr-sm-2" id="mailon" type="text" placeholder="Password" aria-label="Password" value={this.state.password} onChange={this.handlePass}style={{display:passy}} />
+                        <button className="btn btn-dark my-2 my-sm-0" type="submit" style={{display:maile}} onClick={this.tryLogin} >Login</button>
+                    <button className="btn btn-dark my-2 my-sm-0" type="submit" onClick={this.tryLogout} id="logout" style={{display :logoutdisp}}>Logout</button>
                 </form>
             </div>
         </nav>
+
     )}
+    tryLogout = async  (e)=> {
+        await localStorage.clear();
+    }
+
 
     tryLogin = async (e) =>{
         await axios.post('http://localhost:5000/api/users/login', {
@@ -62,5 +78,7 @@ class Navbar extends React.Component{
             });
     }
 
+
 }
+
 export default Navbar;
