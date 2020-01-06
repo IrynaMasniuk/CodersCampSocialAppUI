@@ -20,21 +20,9 @@ import CommentsInsert from './pages/CommentsInsert';
 import CommentsList from './pages/CommentsList';
 import CommentsUpdate from './pages/CommentsUpdate';
 
-
-
 import Posts from "./Posts/app";
 
-const PostsPage = () => {
-    return <div > PostsPage </div>;
-};
-
-const PhotosPage = () => {
-    return <div > PhotosPage </div>;
-};
-
 class App extends React.Component{
-
-
 
         render() {
         var x ='';

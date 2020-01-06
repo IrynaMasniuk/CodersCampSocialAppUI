@@ -1,11 +1,8 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import config from './config';
 import UserProfile from "./UserProfile";
-
-
 
 class RegisterForm extends React.Component {
 
@@ -207,7 +204,7 @@ class RegisterForm extends React.Component {
                         <div className="form-check">
                             <input className="form-check-input" type="checkbox" value="" id="invalidCheck" required />
                             <label className="form-check-label" htmlFor="invalidCheck">
-                                Agree to <a href="#" >terms and condition</a>
+                                Agree to <a href="http://localhost:3000/" >terms and condition</a>
                             </label>
                             <div className="invalid-feedback">
                                 You must agree before submitting.

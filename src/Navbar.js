@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import axios from 'axios';
 
 
@@ -36,7 +35,7 @@ class Navbar extends React.Component{
 
 
         <nav className="navbar navbar-expand-lg navbar-light bg-info">
-            <a className="navbar-brand errorr" href="http://localhost:3000/"><img src="https://img.pngio.com/free-media-network-social-tango-icon-tango-png-free-512_512.png" width="10%" height="10%"/>   SocialApp</a>
+            <a className="navbar-brand errorr" href="http://localhost:3000/"><img src="https://img.pngio.com/free-media-network-social-tango-icon-tango-png-free-512_512.png" alt="Logo" width="10%" height="10%"/>   SocialApp</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">

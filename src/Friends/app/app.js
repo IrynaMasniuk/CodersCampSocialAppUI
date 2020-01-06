@@ -22,7 +22,7 @@ export default class Friends extends React.Component {
 
   deleteItem = (id) => {
     this.setState(({todoData}) => {
-      const indx = todoData.findIndex((el) => el.id == id);
+      const indx = todoData.findIndex((el) => el.id === id);
       const newArray = [...todoData.slice(0,indx), ...todoData.slice(indx+1)]
       
       return {

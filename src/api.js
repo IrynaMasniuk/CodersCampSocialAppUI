@@ -12,11 +12,11 @@ export const deleteEventById = id => api.delete(`/events/${id}`);
 export const getEventById = id => api.get(`/events/${id}`);
 
 //Comments
-export const insertComment = payload => api.post(`/comment`, payload);
+export const insertComment = payload => api.post(`/comments`, payload);
 export const getAllComments = () => api.get(`/comments`);
-export const updateCommentById = (id, payload) => api.put(`/comment/${id}`, payload);
-export const deleteCommentById = id => api.delete(`/comment/${id}`);
-export const getCommentById = id => api.get(`/comment/${id}`);
+export const updateCommentById = (id, payload) => api.put(`/comments/${id}`, payload);
+export const deleteCommentById = id => api.delete(`/comments/${id}`);
+export const getCommentById = id => api.get(`/comments/${id}`);
 
 const apis = {
     //Events

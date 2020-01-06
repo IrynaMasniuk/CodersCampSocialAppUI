@@ -51,9 +51,9 @@ class CommentsUpdate extends Component {
         const comment = await api.getCommentById(id)
 
         this.setState({
-            author: comment.data.data.author,
-            date: comment.data.data.date,
-            content: comment.data.data.content
+            author: comment.data.author,
+            date: comment.data.date,
+            content: comment.data.content
         })
     };
 

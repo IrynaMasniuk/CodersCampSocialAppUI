@@ -1,6 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Link } from 'react-router-dom';
 import faker from 'faker';
 import axios from 'axios';
 import config from './config';
@@ -107,8 +105,9 @@ class Profile extends React.Component {
                 <Navbar bg="light" variant="light">
                     <Navbar.Brand href="#home">{this.state.username}</Navbar.Brand>
                     <Nav className="mr-auto">
-                        <Nav.Link href="/friends">Home</Nav.Link>
+                        <Nav.Link href="/friends">Friends</Nav.Link>
                         <Nav.Link href="/posts">Posts</Nav.Link>
+                        <Nav.Link href="/comments">Comments</Nav.Link>
                         <Nav.Link href="/events">Events</Nav.Link>
                     </Nav>
                 </Navbar>
