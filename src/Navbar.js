@@ -1,7 +1,6 @@
 import React from "react";
 import axios from 'axios';
-
-
+import config from './config';
 
 class Navbar extends React.Component{
 
@@ -62,7 +61,7 @@ class Navbar extends React.Component{
 
 
     tryLogin = async (e) =>{
-        await axios.post('http://localhost:5000/api/users/login', {
+        await axios.post(config.backend + 'users/login', {
             password:this.state.password,
             email:this.state.email
         })

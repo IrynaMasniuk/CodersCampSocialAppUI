@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios'
+import config from './config'
 export default class CreateEvent extends Component {
     constructor(props) {
         super(props);
@@ -37,7 +38,7 @@ export default class CreateEvent extends Component {
 
     handleIncludeEvent = async (e) => {
         e.preventDefault();
-        await axios.post('http://localhost:5000/api/events', {
+        await axios.post(config.backend + 'events', {
             name: this.state.name,
             place: this.state.place,
             date: this.state.date,

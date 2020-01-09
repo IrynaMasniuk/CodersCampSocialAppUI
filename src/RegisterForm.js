@@ -224,7 +224,7 @@ class RegisterForm extends React.Component {
 
     tryRegister = async  (e) => {
 
-        await axios.post('http://localhost:5000/api/users/', {
+        await axios.post(config.backend + 'users/', {
             username : this.state.username,
             password:this.state.password,
             dateOfBirth: this.state.dateOfBirth,

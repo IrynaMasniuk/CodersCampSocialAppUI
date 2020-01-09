@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import config from '../config';
 import Button from 'react-bootstrap/Button';
 
 class CommentsInsert extends Component {
@@ -18,7 +19,7 @@ class CommentsInsert extends Component {
 
     handleIncludeComment = async (e) => {
         e.preventDefault();
-        await axios.post('http://localhost:5000/api/comments', {
+        await axios.post(config.backend + 'comments', {
             author: this.state.author,
             date: this.state.date,
             content: this.state.content
