@@ -239,7 +239,7 @@ class RegisterForm extends React.Component {
                 useHistory().push('/Profile/');
             })
             .catch(error => {
-                console.log(error.response)
+                console.log(error)
             });
     }
 
