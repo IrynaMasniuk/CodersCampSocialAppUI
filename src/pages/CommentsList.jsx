@@ -39,7 +39,7 @@ class UpdateComment extends Component {
     updateComment = e => {
         e.preventDefault()
 
-        window.location.href = `/comments/update/:${this.props.id}`
+        window.location.href = `/comments/update/${this.props.id}`
     };
 
     render() {

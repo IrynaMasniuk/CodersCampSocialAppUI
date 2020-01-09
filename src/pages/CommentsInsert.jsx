@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import api from '../api';
+import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 
 class CommentsInsert extends Component {
@@ -7,20 +7,8 @@ class CommentsInsert extends Component {
         super(props)
 
         this.state = {
-            author: '',
-            date: '',
             content: ''
         };
-    };
-
-    handleChangeInputAuthor = async event => {
-        const author = event.target.value
-        this.setState({ author })
-    };
-
-    handleChangeInputDate = async event => {
-        const date = event.target.value
-        this.setState({ date })
     };
 
     handleChangeInputContent = async event => {
@@ -30,16 +18,16 @@ class CommentsInsert extends Component {
 
     handleIncludeComment = async (e) => {
         e.preventDefault();
-        const { author, date, content} = this.state
-        const payload = {author, date, content}
-
-        await api.insertComment(payload).then(res => {
-            window.alert(`Comment inserted successfully`)
-            this.setState({
-                author: '',
-                date: '',
-                content: '',
-            })
+        await axios.post('http://localhost:5000/api/comments', {
+            author: this.state.author,
+            date: this.state.date,
+            content: this.state.content
+        })
+        .then(response => {
+            console.log(response)
+        })
+        .catch(error => {
+            console.log(error.response)
         });
     };
 
@@ -49,22 +37,9 @@ class CommentsInsert extends Component {
                 <h3>Create New Comment</h3>
                 <form >
                     <div className="form-group">
-                        <label>Comment author: </label>
-                        <input type="text"
-                            required
-                            className="form-control"
-                            value={this.state.author}
-                            onChange={this.handleChangeInputAuthor}
-                        />
-                        <label>Comment date: </label>
-                        <input type="date"
-                            required
-                            className="form-control"
-                            value={this.state.date}
-                            onChange={this.handleChangeInputDate}
-                        />
                         <label>Comment content: </label>
                         <textarea
+                            required
                             className="form-control"
                             value={this.state.content}
                             onChange={this.handleChangeInputContent}
@@ -72,7 +47,7 @@ class CommentsInsert extends Component {
                     </div>
 
                     <div className="form-group">
-                        <Button variant="primary" size="sm" onClick={this.onSubmit} block="block" type="submit">
+                        <Button variant="primary" size="sm" onClick={this.handleIncludeComment} block="block" type="submit">
                             Create Comment
                         </Button>
 

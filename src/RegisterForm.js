@@ -1,10 +1,12 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import config from './config';
+import UserProfile from "./UserProfile";
 
 class RegisterForm extends React.Component {
+
+
     constructor(props) {
         super(props);
         this.state = {
@@ -91,7 +93,7 @@ class RegisterForm extends React.Component {
         return(
             <div className="container register">
                 <h1 className="toast-header">Sign Up right now</h1>
-                <form  className="needs-validation" noValidate>
+                <form  className="needs-validation" noValidate target="_blank" action='localhost:3000/Profile/'>
                     <div className="form-row">
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom01">Username</label>
@@ -202,7 +204,7 @@ class RegisterForm extends React.Component {
                         <div className="form-check">
                             <input className="form-check-input" type="checkbox" value="" id="invalidCheck" required />
                             <label className="form-check-label" htmlFor="invalidCheck">
-                                Agree to <a href="#" >terms and condition</a>
+                                Agree to <a href="http://localhost:3000/" >terms and condition</a>
                             </label>
                             <div className="invalid-feedback">
                                 You must agree before submitting.
@@ -237,12 +239,16 @@ class RegisterForm extends React.Component {
         })
             .then(response => {
                 console.log(response)
-                window.location.href = "localhost:3000/Profile/"+ this.state.email;
+                localStorage.setItem('email',this.state.email);
+                let tempUrl = 'http://localhost:3000/Profile/';
+                e.openWindow(tempUrl);
+
             })
             .catch(error => {
                 console.log(error.response)
             });
     }
+
 
 }
 

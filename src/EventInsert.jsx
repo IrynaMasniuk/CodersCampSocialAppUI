@@ -1,6 +1,4 @@
-
 import React, { Component } from 'react';
-import api from './api'
 import Button from 'react-bootstrap/Button';
 import axios from 'axios'
 export default class CreateEvent extends Component {
