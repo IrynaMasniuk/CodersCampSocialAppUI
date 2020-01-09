@@ -92,7 +92,7 @@ class RegisterForm extends React.Component {
         return(
             <div className="container register">
                 <h1 className="toast-header">Sign Up right now</h1>
-                <form  className="needs-validation" noValidate target="_blank" action='/Profile/'>
+                <form  className="needs-validation" noValidate target="_blank" onSubmit={ this.submitting } action='/Profile/'>
                     <div className="form-row">
                         <div className="col-md-3 mb-1">
                             <label htmlFor="validationCustom01">Username</label>
@@ -241,6 +241,10 @@ class RegisterForm extends React.Component {
             .catch(error => {
                 console.log(error.response)
             });
+    }
+
+    submitting = (e) => {
+        e.preventDefault();
     }
 
 
