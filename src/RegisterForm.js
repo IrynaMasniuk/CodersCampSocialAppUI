@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import config from './config';
-import UserProfile from "./UserProfile";
+import { useHistory } from "react-router-dom";
 
 class RegisterForm extends React.Component {
 
@@ -237,9 +236,7 @@ class RegisterForm extends React.Component {
             .then(response => {
                 console.log(response)
                 localStorage.setItem('email',this.state.email);
-                let tempUrl = '/Profile/';
-                e.openWindow(tempUrl);
-
+                useHistory().push('/Profile/');
             })
             .catch(error => {
                 console.log(error.response)
