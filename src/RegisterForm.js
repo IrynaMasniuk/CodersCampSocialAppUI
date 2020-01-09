@@ -214,9 +214,6 @@ class RegisterForm extends React.Component {
 
                     <button className="btn btn-dark" type="submit" onClick={this.tryRegister}>Register</button>
 
-                    <div><Link to="/Profile/au8ujhikect@gmail">To profile</Link></div>
-
-
                 </form>
             </div>
 

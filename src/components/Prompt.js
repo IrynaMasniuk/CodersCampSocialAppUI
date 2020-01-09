@@ -26,4 +26,8 @@ export default class Prompt extends Component {
             </Modal>
         )    
     }
+
+    // ok() {
+    //     this.cl({})
+    // }
 }

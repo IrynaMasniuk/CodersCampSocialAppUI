@@ -28,11 +28,7 @@ class App extends React.Component{
         var x ='';
         if(localStorage.getItem('email') !== null){
             x=localStorage.getItem('email');
-        }else{
-            x='deniro@gmail.com';
         }
-
-
             return (
 
                 <div style={{

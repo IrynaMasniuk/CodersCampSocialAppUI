@@ -5,26 +5,13 @@ import config from './config';
 
 import Prompt from './components/Prompt';
 import { Container, Row, Col, Navbar, Nav, ListGroup, Button  } from 'react-bootstrap';
+import { useHistory } from "react-router-dom";
 
 class Profile extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            isModified: false,
-            canEdit: false,
-            isEditing: false,
-            username: '',
-            dateOfBirth: '',
-            email: props.email,
-            phoneNumber: '',
-            relationship: '',
-            cityOfOrigin: '',
-            cityOfLiving: '',
-            hobbies: '',
-            work: '',
-            education: '',
-            showDeletePrompt: false,
-        }
+        this.state = this.cleanState();
+        this.setState({email: props.email});
         this.edit = this.edit.bind(this);
         // this.changeBirthDate = this.changeBirthDate.bind(this);
         this.stateChanged = this.stateChanged.bind(this);
@@ -92,7 +79,11 @@ class Profile extends React.Component {
             }
         })
             .then(response => {
-                this.getUserProfile();
+                this.setState({ showDeletePrompt: false });
+                this.setState(this.cleanState());
+                localStorage.setItem('email',  null);
+                useHistory().push('/');
+
             }, error => {
                 console.log('Error during updating profile: ' + JSON.stringify(error));
                 this.setState({ lastError: error?.message ?? JSON.stringify(error) });
@@ -266,6 +257,24 @@ class Profile extends React.Component {
             work: state.work,
             education: state.education,
         }
+    }
+    cleanState = () => {
+        return {
+            isModified: false,
+            canEdit: false,
+            isEditing: false,
+            username: '',
+            dateOfBirth: '',
+            email: null,
+            phoneNumber: '',
+            relationship: '',
+            cityOfOrigin: '',
+            cityOfLiving: '',
+            hobbies: '',
+            work: '',
+            education: '',
+            showDeletePrompt: false,
+        };
     }
 }
 export default Profile;   
