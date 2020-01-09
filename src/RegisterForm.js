@@ -7,7 +7,7 @@ class RegisterForm extends React.Component {
 
     constructor(props) {
         super(props);
-        this.history = useHistory();
+        
         this.state = {
             username: '',
             password:'',
@@ -89,6 +89,7 @@ class RegisterForm extends React.Component {
 //}
 
     render() {
+        this.history = useHistory();
         return(
             <div className="container register">
                 <h1 className="toast-header">Sign Up right now</h1>
