@@ -5,9 +5,9 @@ import { useHistory } from "react-router-dom";
 
 class RegisterForm extends React.Component {
 
-
     constructor(props) {
         super(props);
+        this.history = useHistory();
         this.state = {
             username: '',
             password:'',
@@ -236,7 +236,7 @@ class RegisterForm extends React.Component {
             .then(response => {
                 console.log(response)
                 localStorage.setItem('email',this.state.email);
-                useHistory().push('/Profile/');
+                this.history.push('/Profile/');
             })
             .catch(error => {
                 console.log(error)
