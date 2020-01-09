@@ -1,7 +1,7 @@
 import React from "react";
 import axios from 'axios';
 import config from './config';
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 
 class RegisterForm extends React.Component {
 
@@ -92,6 +92,7 @@ class RegisterForm extends React.Component {
         this.history = useHistory();
         return(
             <div className="container register">
+                { this.state.gotoProfile && <Redirect to='/Profile/'/> }
                 <h1 className="toast-header">Sign Up right now</h1>
                 <form  className="needs-validation" noValidate target="_blank" onSubmit={ this.submitting } action='/Profile/'>
                     <div className="form-row">
@@ -237,7 +238,7 @@ class RegisterForm extends React.Component {
             .then(response => {
                 console.log(response)
                 localStorage.setItem('email',this.state.email);
-                this.history.push('/Profile/');
+                this.setState({gotoProfile: true});
             })
             .catch(error => {
                 console.log(error)
