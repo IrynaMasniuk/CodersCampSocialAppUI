@@ -71,9 +71,9 @@ class Profile extends React.Component {
             }
         })
             .then(response => {
-                this.getUserProfile();
+                this.loadUser();
             }, error => {
-                console.log('Error during updting profile: ' + JSON.stringify(error));
+                console.log('Error during updating profile: ' + JSON.stringify(error));
                 this.setState({ lastError: error?.message ?? JSON.stringify(error) });
             });
     }
