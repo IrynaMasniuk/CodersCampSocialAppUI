@@ -30,6 +30,7 @@ class Profile extends React.Component {
         this.stateChanged = this.stateChanged.bind(this);
         this.loadUser = this.loadUser.bind(this);
         this.deleteUser = this.deleteUser.bind(this);
+        this.updateUserProfile = this.updateUserProfile.bind(this);
         // this.cancel = this.cancel.bind(this);
     }
     componentDidMount = async () => {
