@@ -11,7 +11,7 @@ class Profile extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.cleanState();
-        this.setState({email: localStorage.getItem('email')});
+        this.state['email'] = localStorage.getItem('email');
         this.edit = this.edit.bind(this);
         // this.changeBirthDate = this.changeBirthDate.bind(this);
         this.stateChanged = this.stateChanged.bind(this);
