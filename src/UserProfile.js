@@ -5,7 +5,7 @@ import config from './config';
 
 import Prompt from './components/Prompt';
 import { Container, Row, Col, Navbar, Nav, ListGroup, Button  } from 'react-bootstrap';
-import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 class Profile extends React.Component {
     constructor(props) {
@@ -81,9 +81,8 @@ class Profile extends React.Component {
             .then(response => {
                 this.setState({ showDeletePrompt: false });
                 this.setState(this.cleanState());
+                this.setState({ gotoMain: true });
                 localStorage.setItem('email',  null);
-                useHistory().push('/');
-
             }, error => {
                 console.log('Error during updating profile: ' + JSON.stringify(error));
                 this.setState({ lastError: error?.message ?? JSON.stringify(error) });
@@ -94,6 +93,7 @@ class Profile extends React.Component {
         //  getUserProfile('au8ujhikect@gmail');
         return (
             <Container style={{ background: '#fff' }}>
+                { this.state.gotoMain && <Redirect to='/'/> }
                 <Navbar bg="light" variant="light">
                     <Navbar.Brand href="#home">{this.state.username}</Navbar.Brand>
                     <Nav className="mr-auto">
@@ -274,6 +274,7 @@ class Profile extends React.Component {
             work: '',
             education: '',
             showDeletePrompt: false,
+            gotoMain: false
         };
     }
 }

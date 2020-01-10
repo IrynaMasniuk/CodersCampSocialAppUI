@@ -1,7 +1,7 @@
 import React from "react";
 import axios from 'axios';
 import config from './config';
-import { useHistory, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 class RegisterForm extends React.Component {
 
@@ -89,7 +89,7 @@ class RegisterForm extends React.Component {
 //}
 
     render() {
-        this.history = useHistory();
+        
         return(
             <div className="container register">
                 { this.state.gotoProfile && <Redirect to='/Profile/'/> }
